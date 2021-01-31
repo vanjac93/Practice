@@ -12,11 +12,25 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "i18next": "^19.8.4",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.7.4",
+    "react-player": "^2.7.0",
+    "react-router-dom": "^5.2.0",
+    "react-spring": "^8.0.27",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1",
+    "styled-components": "^5.2.1",
+    "styled-icons": "^10.22.0",
+    "sweetalert2": "^10.11.1"
   },
   "devDependencies": {
-    "nwb": "0.25.x"
+    "eslint": "^7.15.0",
+    "eslint-plugin-react": "^7.21.5",
+    "i18next-scanner": "^3.0.0",
+    "nwb": "0.23.0"
   },
   "author": "",
   "license": "MIT",

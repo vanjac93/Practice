@@ -1,19 +1,42 @@
-import './App.css'
+import React, { createContext, useEffect, Suspense, useState } from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from '../public/theme'
+import FallbackComponent from './components/FallbackComponent'
+import Router from './pages/RouterComponent'
+import { SmallScreenBreakpoint } from '~/Constants'
+import './services/i18n'
 
-import React, {Component} from 'react'
+export const Context = createContext({
+  smallScreen: document.body.clientWidth < SmallScreenBreakpoint
+})
 
-class App extends Component {
-  render() {
-    return <div className="App">
-      <div className="App-heading App-flex">
-        <h2>Welcome to <span className="App-react">React</span></h2>
-      </div>
-      <div className="App-instructions App-flex">
-        <img className="App-logo" src={require('./react.svg')}/>
-        <p>Edit <code>src/App.js</code> and save to hot reload your changes.</p>
-      </div>
-    </div>
-  }
+export default function App() {
+  const [smallScreen, setSmallScreen] = useState(document.body.clientWidth < SmallScreenBreakpoint)
+
+  useEffect(() => {
+    const resize = () => {
+      if (!smallScreen && document.body.clientWidth < SmallScreenBreakpoint) {
+        setSmallScreen(true)
+      }
+      if (smallScreen && document.body.clientWidth > SmallScreenBreakpoint) {
+        setSmallScreen(false)
+      }
+    }
+
+    window.addEventListener('resize', resize)
+
+    return () => {
+      window.removeEventListener('resize', resize)
+    }
+  }, [smallScreen])
+
+  return (
+    <Suspense fallback={<FallbackComponent />}>
+      <Context.Provider value={{ smallScreen }}>
+        <ThemeProvider theme={theme}>
+          <Router />
+        </ThemeProvider>
+      </Context.Provider>
+    </Suspense>
+  )
 }
-
-export default App
