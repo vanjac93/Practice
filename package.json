@@ -27,6 +27,11 @@
     "sweetalert2": "^10.11.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/preset-flow": "^7.12.1",
     "eslint": "^7.15.0",
     "eslint-plugin-react": "^7.21.5",
     "i18next-scanner": "^3.0.0",

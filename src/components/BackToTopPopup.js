@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { animated, useSpring } from 'react-spring'
 import { Popup } from 'semantic-ui-react'
-import styled, { useTheme } from 'styled-components'
+import styled, { css, useTheme } from 'styled-components'
 import { ArrowToTop } from 'styled-icons/boxicons-solid'
 import { Context } from '../App'
 
@@ -29,7 +29,7 @@ const StyledDiv = styled(animated.div)`
     cursor: pointer;
   }
   & > svg {
-    margin-right: 5px;
+    ${({smallScreen}) => smallScreen === 'true' && css` margin-right: 5px;`}
   }
 `
 export default function BackToTopPopup(props) {
@@ -84,7 +84,7 @@ export default function BackToTopPopup(props) {
       <StyledPopup trigger={<StyledDiv smallscreen={smallScreen.toString()} style={endPopupStyle} onClick={props.onClick}>
         <ArrowToTop height={15} />
       </StyledDiv>}>
-        {t('Back to top?')}
+        {t('Go to top?')}
       </StyledPopup>
     )
   } else {

@@ -7,7 +7,6 @@ import ErrorPage from '~/components/ErrorPage'
 import { Routes } from '~/Constants'
 import MainMenu from './common/MainMenu'
 import Languages from './Languages'
-import Spotify from './Mockup/Spotify'
 import Trello from './Mockup/Trello'
 import SpotifyDeveloper from './Mockup/Spotify/SpotifyDeveloper'
 

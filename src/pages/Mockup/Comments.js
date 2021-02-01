@@ -10,28 +10,30 @@ export default function Comments({comments}) {
 
 
   return ( <Container>
-    <div className="header">
-      <h3>{t('Comments')}</h3>
-      <button onClick={toggleComments}>{showComments ? t('Hide comments') : t('Show comments')}</button>
-    </div>
-
-    {showComments && (
-      comments.map(({id, body, title}) => (
-        <TextSection key={id}>
-          <CommentDiv key={id}>
-            <img src="https://flipweb.org/wp-content/uploads/2019/12/Comments-section.png" />
-            <div className="comment-body">
-              <div className="user">{`id: ${id}`}</div>
-              <div className="comment-text">{body}</div>
-              <div className="comment-reaction">
-                <span>{t('Like')}</span>
-                <span>{t('Reply')}</span>
-
-              </div>
-            </div>
-          </CommentDiv>
-        </TextSection>) )
-    )
+    {
+      <TextSection >
+        <div className="header">
+          <h3>{t('Comments')}</h3>
+          <button onClick={toggleComments}>{showComments ? t('Hide comments') : t('Show comments')}</button>
+        </div>
+        {
+          showComments && (
+            comments.map(({id, body}) => (
+              <CommentDiv key={id}>
+                <img src="https://flipweb.org/wp-content/uploads/2019/12/Comments-section.png" />
+                <div className="comment-body">
+                  <div className="user">{`id: ${id}`}</div>
+                  <div className="comment-text">{body}</div>
+                  <div className="comment-reaction">
+                    <span>{t('Like')}</span>
+                    <span>{t('Reply')}</span>
+                  </div>
+                </div>
+              </CommentDiv>
+            ) )
+          )
+        }
+      </TextSection>
     }
   </Container>
   )

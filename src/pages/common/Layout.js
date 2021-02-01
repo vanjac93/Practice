@@ -26,7 +26,7 @@ export default function Layout(props) {
   return (
     <Fragment>
       <Dimmer active={props.isBusy}>
-        <Loader />
+        <Loader content={t('Loading...')} />
       </Dimmer>
       <StyledLayout style={style}>
         <BackToTopPopup onClick={scrollToTop} />
